@@ -1,0 +1,28 @@
+/***********************************
+ * Copyright (c) 2025 Roger Brown.
+ * Licensed under the MIT License.
+ ****/
+
+import "oaidl.idl"; 
+
+[
+	uuid(25aba843-adf2-4a08-bf3c-c975fa75fc7c),
+	helpstring("RegistrationServices Hello World Component 1.0 Type Library"), 
+	version(1.0)
+]
+library RhubarbGeekNzRegistrationServices
+{
+	importlib("stdole32.tlb");
+
+	[
+		object,
+		uuid(913e9ee6-1bb1-45bc-9c53-6010d1c33fe5),
+		oleautomation,
+		dual,
+		helpstring("interface IHelloWorld")
+	]
+	interface IHelloWorld : IDispatch
+	{
+		HRESULT GetMessage(int Hint,[retval,out] BSTR *lpMessage);
+	}
+}
