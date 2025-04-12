@@ -1,12 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net481</TargetFramework>
+    <Copyright>Copyright © 2025 Roger Brown</Copyright>
+    <Title>Registration Services</Title>
+    <Company>rhubarb-geek-nz</Company>
+    <Description>Demonstration of local server COM object in C#</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="rhubarb-geek-nz.RegistrationServices" Version="1.0.0" />
   </ItemGroup>
+
+  <Target Name="Sign" AfterTargets="Compile" Condition=" '$(Configuration)' == 'Release' AND '$(CertificateThumbprint)' != '' ">
+    <ItemGroup>
+        <FileToSign Include="$(IntermediateOutputPath)$(TargetFileName)" />
+    </ItemGroup>
+    <Message Importance="high" Text="Signing assemblies: @(FileToSign)" />
+    <SignFile SigningTarget="@(FileToSign)" CertificateThumbprint="$(CertificateThumbprint)" TimestampUrl="http://timestamp.digicert.com" />
+  </Target>
 
 </Project>

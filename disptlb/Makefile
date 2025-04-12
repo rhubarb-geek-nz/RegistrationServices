@@ -19,7 +19,7 @@ $(TLBFILE): $(IDLNAME).idl
 	midl $(IDLNAME).idl /client none /server none /tlb $@ /out .
 
 $(DLLFILE): $(TLBFILE)
-	tlbimp $(TLBFILE) /asmversion:1.0.0.0 /namespace:$(LIBNAME) /machine:Agnostic /out:$@
+	tlbimp $(TLBFILE) /asmversion:1.0.0.0 /namespace:$(LIBNAME) /machine:Agnostic /out:$@ $(TLBIMPFLAGS)
 	if not "$(CertificateThumbprint)"=="" signtool sign /a /sha1 $(CertificateThumbprint) /fd SHA256 /t http://timestamp.digicert.com $@
 
 $(PKGNAME): $(DLLFILE) $(IDLNAME).nuspec
