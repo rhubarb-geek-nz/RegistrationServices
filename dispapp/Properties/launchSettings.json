@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "dispapp": {
+      "commandName": "Project",
+      "commandLineArgs": "-1"
+    }
+  }
+}

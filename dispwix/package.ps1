@@ -16,7 +16,7 @@ trap
 
 foreach ($ARCH in $Architectures)
 {
-	$VERSION=(Get-Item -LiteralPath "..\dispsvr\bin\Release\net481\win-$ARCH\publish\dispsvr.exe").VersionInfo.ProductVersion
+	$VERSION=(Get-Item -LiteralPath "..\dispsvr\bin\Release\net481\win-$ARCH\publish\RhubarbGeekNz.RegistrationServices.Server.exe").VersionInfo.ProductVersion
 
 	$env:PRODUCTVERSION = $VERSION
 	$env:PRODUCTARCH = $ARCH

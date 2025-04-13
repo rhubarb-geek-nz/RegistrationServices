@@ -6,8 +6,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using RhubarbGeekNz.RegistrationServices;
 
-namespace RhubarbGeekNz.RegistrationServices
+namespace RhubarbGeekNz.RegistrationServices.Server
 {
     [Guid("d8dfbd42-569c-47c1-9523-9369e67371d1")]
     public class CHelloWorld : IHelloWorld
